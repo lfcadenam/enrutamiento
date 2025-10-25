@@ -11,9 +11,13 @@ Route::get('/10', function () {
     require 'formulario.php';
 });
 
-Route::get('/6', function () {
-    $cantidad = 6;
+Route::get('/15', function () {
+    $cantidad = 15;
     require 'formulario.php';
+});
+
+Route::get('/:cantidad', function() {    
+    echo "prueba generico";
 });
 
 Route::dispatch();
