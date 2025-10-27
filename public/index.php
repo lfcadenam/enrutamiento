@@ -26,7 +26,7 @@ use Libreria\Route;
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-light bg-light rounded">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="#">Pagina de LuisferDeveloper</a>
+                    <a class="navbar-brand" href="#">Compra de Ebook's, favor regalanos los siguientes datos para finalizar la compra.</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample09" aria-controls="navbarsExample09" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>

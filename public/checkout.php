@@ -1,14 +1,15 @@
 <?php
 require_once 'funciones/funciones.php';
-$valor = 10000; // Valor en COP
+$valor = 20000; // Valor en COP
 
 $nombres  = $_POST["nombres"];
 $correo  = $_POST["correo"];
 $cantidad_num  = $_POST["cantidad"];
+$telefono  = $_POST["telefono"];
 
 $valor_pagar = $valor * $cantidad_num;
 
-$idCompra = guardarDatoscompra($valor_pagar, $cantidad_num, $nombres, $correo);
+$idCompra = guardarDatoscompra($valor_pagar, $cantidad_num, $nombres, $correo, $telefono);
 
 ?>
 <script src="https://checkout.bold.co/library/boldPaymentButton.js"></script>

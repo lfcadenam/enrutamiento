@@ -6,12 +6,12 @@ include_once 'abrir.php';
  * 
  * @return void
  */
-function guardarDatoscompra($valor_cancela, $cantidad, $nombres, $correo)
+function guardarDatoscompra($valor_cancela, $cantidad, $nombres, $correo, $telefono)
 {
     $bd = obtenerConexion();
-    $sql = "insert into ventas (estado_venta, valor_cancela, cantidad, nombre_comprador, correo_comprador) values (?,?,?,?,?)";
+    $sql = "insert into ventas (estado_venta, valor_cancela, cantidad, nombre_comprador, correo_comprador,telefono_celular) values (?,?,?,?,?,?)";
     $stmt = $bd->prepare($sql);
-    $stmt->execute(['P', $valor_cancela, $cantidad, $nombres, $correo]);
+    $stmt->execute(['P', $valor_cancela, $cantidad, $nombres, $correo, $telefono]);
     return $bd->lastInsertId();
 }
 function actualizardatosCompra($idCompra, $estado, $transactionId, $fecha_venta,  $metodoPago,  $referencia_pago)

@@ -28,15 +28,19 @@ class Route
 
         foreach (self::$routes[$method] as $route => $callback){
 
-            if(preg_match("#^$route$#",$uri)){                
-                $callback();
+            if(strpos($route, ':') !== false){
+                $route = preg_replace('#:[a-zA-Z1-9]+#','([a-zA-Z1-9]+)', $route);
+            }
+
+            if(preg_match("#^$route$#",$uri, $matches)){
+                                
+                $params = array_slice($matches,1);                    
+                
+                $callback(...$params);
+                
                 return;
             }
 
-            /*if($route == $uri){
-                $callback();
-                return;
-            }*/
         }
         
         echo "404 Not Found";
