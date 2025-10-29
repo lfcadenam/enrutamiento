@@ -41,11 +41,17 @@ function numGenerados($idVenta)
     $sentencia = $bd->query("SELECT numeros FROM ventas where id_venta = $idVenta;");
     return $sentencia->fetch();
 }
+function infoVenta($idVenta)
+{
+    $bd = obtenerConexion();
+    $sentencia = $bd->query("SELECT nombre_comprador, correo_comprador, cantidad FROM ventas where id_venta = $idVenta;");
+    return $sentencia->fetch();
+}
 
 function enviarCorreoHtml($para, $numeros, $producto)
 {    
     require_once('./mail/class.smtp.php');
-    require_once('./mail/class.phpmailer.php');
+    require_once('./mail/class.phpmailer.php');    
 
     $mail = new PHPMailer(true);
     $mail->SMTPDebug = 0;
@@ -54,18 +60,18 @@ function enviarCorreoHtml($para, $numeros, $producto)
     $mail->SMTPAuth   = true;
 
     $mail->Port       = 587;
-    $mail->Username = "luisferdeveloper@gmail.com";
-    $mail->Password = "mcoz llex etyw cmec";
+    $mail->Username = "appinversioness@gmail.com";
+    $mail->Password = "ecmx yhyv swxx ogth";
     $mail->CharSet = 'UTF-8';
 
     //Recipients
-    $mail->setFrom('Stickers@gmail.com', 'Stickers');
+    $mail->setFrom('appinversioness@gmail.com', 'Ebooks AppInversiones');
     // $to = "wallpapersss@gmail.com";
     $mail->addAddress($para);
 
     // Contenido
     $mail->isHTML(true);
-    $mail->Subject = "Tus Stickers";
+    $mail->Subject = "Tus Ebooks para descargar";
     $mail->Body    .= "<td class='esd-stripe' align='center' esd-custom-block-id='1057446'>
             <table class='es-content-body' width='600' cellspacing='0' cellpadding='0' align='center'>
                 <tbody>
@@ -94,11 +100,27 @@ function enviarCorreoHtml($para, $numeros, $producto)
                                                             <table cellpadding='0' cellspacing='0' width='100%' class='es-menu'>
                                                                 <tbody>
                                                                     <tr class='links-images-top'>
-                                                                        <td align='center' valign='top' width='50%' class='es-p10t es-p10b es-p5r es-p30l' bgcolor='transparent'>";
-                                                                        for ($j = 0; $j < count($numeros); $j++) {
-                                                                            $mail->Body    .= $numeros[$j]."<br>";
+                                                                        <td align='center' valign='top' width='50%' class='es-p10t es-p10b es-p5r es-p30l' bgcolor='transparent'>
+                                                                        <div style='display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; margin-bottom: 5px;'>";
+                                                                        for ($j = 0; $j < count($numeros); $j++) {                                                                            
+                                                                            $mail->Body    .= "<div style='margin: 0;'>
+                                                                                                    <span style='font-size: 16px;
+                                                                                                            display: table;
+                                                                                                            z-index: 2;
+                                                                                                            width: 70px;
+                                                                                                            height: 40px;
+                                                                                                            background: -webkit-radial-gradient(0 100%, circle, rgba(25, 118, 135, 0) 9px, #ffc107 9px),
+                                                                                                                        -webkit-radial-gradient(100% 100%, circle, rgba(25, 118, 135, 0) 8px, #ffc107 9px),
+                                                                                                                        -webkit-radial-gradient(100% 0, circle, rgba(25, 118, 135, 0) 8px, #ffc107 9px),
+                                                                                                                        -webkit-radial-gradient(0 0, circle, rgba(25, 118, 135, 0) 9px, #ffc107 9px); margin-right: 2px;
+                                                                                                                        background-position: bottom left, bottom right, top right, top left;
+                                                                                                                        -webkit-background-size: 51% 51%; background-size: 51% 51%; background-repeat: no-repeat;'
+                                                                                                            >
+                                                                                                        <div style='display: table-cell; vertical-align: middle; text-align: center;'> <span>" . $numeros[$j] . " </span></div>
+                                                                                                    </span> </div>";
+
                                                                         }
-                                                                        $mail->Body    .= "</td>
+                                                                        $mail->Body    .= "</div></td>
                                                                     </tr>
                                                                 </tbody>
                                                             </table>
@@ -115,7 +137,7 @@ function enviarCorreoHtml($para, $numeros, $producto)
                                                                     </tr>
                                                                     <tr>
                                                                         <td scope='col' style='color:#636363;border:1px solid #e5e5e5;vertical-align:middle;padding:12px;text-align:left' align='center'>" . $producto . "</td>
-                                                                        <td  scope='col' style='color:#636363;border:1px solid #e5e5e5;vertical-align:middle;padding:12px;text-align:left' align='center'><a href='https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=456,fit=crop,q=95/m5KwaODD03cW8bJq/disea--o-sin-tatulo-11-YKb3ok383ltQjDxg.png' download target='_blank'>Logo</a></td>
+                                                                        <td  scope='col' style='color:#636363;border:1px solid #e5e5e5;vertical-align:middle;padding:12px;text-align:left' align='center'><a href='https://appinversiones.com.co/archivo/MARKETING_360_2025.pdf' download target='_blank'>Descargar Ebook</a></td>
                                                                     </tr>
                                                                 </tbody>
                                                             </table>

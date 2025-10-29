@@ -12,8 +12,9 @@ use Libreria\Route;
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.88.1">
-    <title>Formulario Pagos</title>
+    <title>App Inversiones, portal pagos</title>
     <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/navbars/">
+    <link rel="icon" type="image/x-icon" href="/img/logo.png">
     <!-- Bootstrap core CSS -->
     <link href="css/assets/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom styles for this template -->
@@ -26,11 +27,18 @@ use Libreria\Route;
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-light bg-light rounded">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="#">Compra de Ebook's, favor regalanos los siguientes datos para finalizar la compra.</a>
+                    <img src="img/logo.png" width="20%">                    
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample09" aria-controls="navbarsExample09" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
-                    </button>
+                    </button>                    
                     <div class="collapse navbar-collapse" id="navbarsExample09">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="/">Inicio</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/consulta-numeros">Consultar Números</a>
+                            </li>
                     </div>
                 </div>
             </nav>
@@ -43,4 +51,5 @@ use Libreria\Route;
     </main>
     <script src="css/assets/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

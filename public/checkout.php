@@ -14,7 +14,7 @@ $idCompra = guardarDatoscompra($valor_pagar, $cantidad_num, $nombres, $correo, $
 ?>
 <script src="https://checkout.bold.co/library/boldPaymentButton.js"></script>
 <?php
-$referencia = "Stickers_".$idCompra;// Referencia de la compra
+$referencia = "Ebooks_".$idCompra;// Referencia de la compra
 
 $ApiKey = "oemo61j7cNE0NgdXZWO-PvIg2OsP9BTaI5wvXFNSQpY";
 $screctKey = "A0xdksnW-r0Ld680LnASOA";
@@ -48,12 +48,13 @@ $integritySignature = hash("sha256", $referencia . $valor_pagar . "COP" . $screc
         currency: "COP",
         amount: <?php echo $valor_pagar ?>,
         apiKey: "<?php echo $ApiKey; ?>",
-        redirectionUrl: "https://supermotos.company/stickers/finaliza_proceso.php",
+        redirectionUrl: "https://appinversiones.com.co/public/finaliza_proceso.php",
         integritySignature: "<?php echo $integritySignature; ?>",
-        description: "Publicacion de moto en la pagina de Supermotos",  
+        description: "Venta de Ebooks",  
         customerData: JSON.stringify({
-          email: '<?php echo $correo; ?>',
-          fullName: '<?php echo $nombres; ?>'
+            email: '<?php echo $correo; ?>',
+            fullName: '<?php echo $nombres; ?>',
+            phone: '<?php echo $telefono;?>'
         }),    
     });
 
