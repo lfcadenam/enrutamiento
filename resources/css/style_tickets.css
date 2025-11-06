@@ -1,0 +1,66 @@
+.tixGrid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 5px;
+  ;
+  /* Espacio entre los tickets */
+}
+
+.tixContainer {
+  margin: 0;
+}
+
+.tix {
+  font-size: 16px;
+  display: table;
+  z-index: 2;
+  width: 70px;
+  height: 40px;
+  /*grey*/
+  background: -webkit-radial-gradient(0 100%, circle, rgba(25, 118, 135, 0) 9px, #ffc107 9px),
+              -webkit-radial-gradient(100% 100%, circle, rgba(25, 118, 135, 0) 8px, #ffc107 9px),
+              -webkit-radial-gradient(100% 0, circle, rgba(25, 118, 135, 0) 8px, #ffc107 9px),
+              -webkit-radial-gradient(0 0, circle, rgba(25, 118, 135, 0) 9px, #ffc107 9px);
+}
+
+
+.tixInner {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.tixInner:before {
+  z-index: 0;
+  content: "";
+  display: block;
+  width: 186px;
+  height: 86px;
+  position: absolute;
+  left: 8px;
+  top: 8px;
+}
+
+.tix,
+.tix:before,
+.tix:after,
+.tixInner:before,
+.tixInner:after {
+  background-position: bottom left, bottom right, top right, top left;
+  -webkit-background-size: 51% 51%;
+  background-size: 51% 51%;
+  background-repeat: no-repeat;
+}
+
+.tixInner span {
+  z-index: 10;
+  position: relative;
+  color: #000;
+  font-weight: bold;
+}
+
+a {
+  text-decoration: none;
+}
