@@ -58,7 +58,11 @@ class Model
         return $this->query($sql)->first();
     }
 
-    public function where($columna, $operador, $valor){        
+    public function where($columna, $operador, $valor){  
+        if($operador == null){
+            $operador = '=';   
+        }      
+        $value = $this->conexion->real_escape_string($valor);
         $sql = "select * from {$this->table} where {$columna} {$operador} '{$valor}'";
         $this->query($sql);
 
