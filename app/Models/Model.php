@@ -59,13 +59,19 @@ class Model
     }
 
     public function where($columna, $operador, $valor){  
-        if($operador == null){
+        if($value == null){
+            $value = $operador;
             $operador = '=';   
         }      
-        $value = $this->conexion->real_escape_string($valor);
-        $sql = "select * from {$this->table} where {$columna} {$operador} '{$valor}'";
-        $this->query($sql);
+        
+        $sql = "select * from {$this->table} where {$columna} {$operador} ?";
+        //'{$valor}'
+        $stmt = $this->conexion->prepare($sql);
+        $stmt->bind_param('s', $valor);
+        $stmt->execute();        
 
+        $this->query = $stmt->get_result();
+        
         return $this;
     }
 }

@@ -8,8 +8,6 @@ class Numeros extends Model
 {   
     protected $table = 'ventas';
 
-
-
     public static function generarNumeroAleatorio($longitud = 4)
     {
         $caracteres = '0123456789';

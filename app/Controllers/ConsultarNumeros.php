@@ -10,7 +10,7 @@ class ConsultarNumeros extends Controller
     {   
         $numerdosModel = new Numeros();
 
-        return $numerdosModel->where('correo_comprador','<>','luisferdeveloper@gmail.com')->get();
+        return $numerdosModel->where('correo_comprador','=','luisferdeveloper@gmail.com')->get();
 
         return $this->view('ConsultaNumeros', [
             'title'=>'Consulta Números',
